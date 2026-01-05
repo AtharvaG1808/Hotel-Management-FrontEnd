@@ -1,0 +1,470 @@
+.tp-page {
+  min-height: 80vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background: linear-gradient(180deg, #ffffff 0%, #f7f7f7 100%);
+  padding: 20px;
+}
+.tp-container {
+  width: 100%;
+  max-width: 1100px;
+}
+
+/* Headings */
+.tp-heading {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+.tp-subheading {
+  margin-top: 6px;
+  margin-bottom: 14px;
+  color: #666;
+  font-size: 14px;
+}
+
+/* Filter bar */
+.tp-filterBar {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 12px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  padding: 16px;
+  margin-bottom: 16px;
+}
+.tp-field {
+  grid-column: span 3;
+  display: flex;
+  flex-direction: column;
+}
+.tp-group {
+  grid-column: span 6;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+.tp-label {
+  font-size: 12px;
+  color: #333;
+  margin-bottom: 6px;
+}
+.tp-input {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #e6e6e6;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.tp-actions {
+  grid-column: span 12;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+.tp-btnPrimary {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  background: #FF5A5F;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 700;
+}
+.tp-btnSecondary {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #e6e6e6;
+  background: #fff;
+  color: #333;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.tp-error {
+  grid-column: span 12;
+  background: #ffe6e6;
+  color: #b00020;
+  padding: 8px 10px;
+  border-radius: 8px;
+  margin-top: 6px;
+  font-size: 13px;
+}
+
+/* Results header */
+.tp-resultsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 6px 2px 10px;
+}
+.tp-resultsText {
+  font-size: 13px;
+  color: #444;
+}
+.tp-pageSize {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.tp-labelSmall {
+  font-size: 12px;
+  color: #666;
+}
+.tp-inputSmall {
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: 1px solid #e6e6e6;
+  font-size: 13px;
+}
+
+/* Grid & cards */
+.tp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+.tp-card {
+  position: relative;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 200px;
+}
+.tp-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #0071c2;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 999px;
+  padding: 4px 10px;
+}
+.tp-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #222;
+  padding-right: 80px;
+}
+.tp-desc {
+  margin: 0;
+  color: #555;
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+.tp-metaRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 4px;
+  padding-top: 8px;
+  border-top: 1px solid #f0f0f0;
+}
+.tp-metaItem {
+  display: flex;
+  flex-direction: column;
+  min-width: 120px;
+}
+.tp-metaLabel {
+  font-size: 12px;
+  color: #666;
+}
+.tp-metaValue {
+  font-size: 14px;
+  color: #222;
+  font-weight: 600;
+}
+
+.tp-footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tp-creator {
+  display: flex;
+  flex-direction: column;
+}
+.tp-creatorLabel {
+  font-size: 11px;
+  color: #777;
+}
+.tp-creatorName {
+  font-size: 13px;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Skeleton */
+.tp-skeleton .tp-skel-line {
+  height: 10px;
+  background: linear-gradient(90deg, #f0f0f0, #e8e8e8, #f0f0f0);
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+.tp-skeleton .tp-skel-long {
+  height: 14px;
+  width: 80%;
+}
+.tp-skeleton .tp-skel-short {
+  height: 12px;
+  width: 40%;
+}
+
+/* Empty state */
+.tp-empty {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  padding: 24px;
+  text-align: center;
+  color: #555;
+}
+.tp-emptyIcon {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+.tp-emptyTitle {
+  font-size: 16px;
+  font-weight: 700;
+}
+.tp-emptyText {
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+/* Pagination */
+.tp-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+.tp-pageBtn {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #e6e6e6;
+  background: #fff;
+  color: #333;
+  font-size: 13px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.tp-pageInfo {
+  font-size: 13px;
+  color: #444;
+}
+
+/* --- Card elevation & subtle hover like Airbnb --- */
+.tp-card.tp-card--elevated {
+  padding: 0;                 /* image-first: remove inner padding, add it to sections */
+  overflow: hidden;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+  background: #fff;
+}
+.tp-card.tp-card--elevated:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.10);
+}
+
+/* --- Image block (edge-to-edge) --- */
+.tp-imageWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;    /* slightly taller than 16:9 for a cozy look */
+  background: #f3f4f6;
+  overflow: hidden;
+}
+.tp-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;        /* crop nicely like Airbnb */
+  transform: scale(1.001);  /* avoid hairline gaps on some GPUs */
+}
+
+/* --- Heart / Save button --- */
+.tp-likeBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  backdrop-filter: saturate(150%) blur(4px);
+  background: rgba(255,255,255,0.75);
+  border: 1px solid rgba(0,0,0,0.06);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: background 140ms ease, transform 120ms ease;
+}
+.tp-likeBtn:hover {
+  background: #fff;
+  transform: scale(1.04);
+}
+.tp-likeIcon {
+  width: 18px;
+  height: 18px;
+  fill: #FF5A5F;            /* brand accent */
+  filter: drop-shadow(0 1px 0 rgba(0,0,0,0.08));
+}
+
+/* --- Destination badge overlay on image --- */
+.tp-badge.tp-badge--image {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: auto;
+  top: auto;
+  background: rgba(0, 113, 194, 0.92); /* your blue #0071c2 with opacity */
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 6px 10px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.16);
+}
+
+/* --- Content spacing --- */
+.tp-title,
+.tp-desc,
+.tp-metaRow,
+.tp-footer {
+  padding-left: 14px;
+  padding-right: 14px;
+}
+.tp-title { 
+  margin: 12px 0 4px; 
+  font-size: 17px; 
+  font-weight: 700; 
+  color: #222; 
+}
+.tp-desc {
+  margin: 0;
+  color: #4b5563;
+  font-size: 13.5px;
+  line-height: 1.45;
+}
+
+/* --- Meta row: thin divider & split layout --- */
+.tp-metaRow--split {
+  margin-top: 8px;
+  padding: 10px 14px 0;
+  border-top: 1px solid #f0f0f0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.tp-metaItem { min-width: 0; }
+.tp-metaLabel { font-size: 12px; color: #666; }
+.tp-metaValue { font-size: 14px; color: #222; font-weight: 600; }
+.tp-metaValue--muted { color: #444; font-weight: 500; }
+
+/* --- Footer: price + CTA --- */
+.tp-footer {
+  margin-top: 8px;
+  padding: 12px 14px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.tp-price {
+  font-size: 16px;
+  font-weight: 800;
+  color: #222;
+}
+.tp-priceUnit {
+  margin-left: 6px;
+  font-size: 12px;
+  color: #666;
+  font-weight: 500;
+}
+.tp-cta {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #e6e6e6;
+  background: #fff;
+  color: #333;
+  font-size: 13px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: border-color 140ms ease, box-shadow 140ms ease, transform 120ms ease;
+}
+.tp-card:hover .tp-cta {
+  border-color: #d8d8d8;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.06);
+}
+.tp-cta:active { transform: translateY(1px); }
+
+/* --- Grid gutter tweak for visual rhythm --- */
+.tp-grid {
+  gap: 18px; /* slightly wider gap feels airier like Airbnb */
+}
+
+/* --- Responsive touch-ups --- */
+@media (max-width: 640px) {
+  .tp-metaRow--split {
+    grid-template-columns: 1fr;
+  }
+  .tp-title { font-size: 16px; }
+  .tp-price { font-size: 15px; }
+}
+.tp-amenities {
+  padding: 8px 16px;
+}
+.tp-chip {
+  background: var(--secondary);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+.tp-amenitiesList {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.tp-pill {
+  background: #0f172a;
+  border: 1px solid var(--border);
+  color: white;
+  border-radius: 999px;
+  font-size: 12px;
+  padding: 4px 10px;
+}
+.tp-ratingRow, .ht-ratingRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+}
+.tp-stars, .ht-stars {
+  display: inline-flex;
+  gap: 4px;
+}
+.tp-starBtn, .ht-starBtn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  color: #ffd166; /* gold */
+}

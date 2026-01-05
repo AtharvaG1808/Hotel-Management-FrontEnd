@@ -1,0 +1,680 @@
+
+/* ========== AddHotelPackage Modern Theme (ahp-*) ========== */
+:root {
+  --ahp-accent: #FF5A5F;          /* primary coral */
+  --ahp-brand: #0071c2;           /* blue accent */
+  --ahp-danger: #b00020;
+  --ahp-bg: #f7f8fa;
+  --ahp-card: #ffffff;
+  --ahp-text-strong: #222;
+  --ahp-text: #333;
+  --ahp-text-muted: #666;
+  --ahp-border: #e6e6e6;
+  --ahp-border-soft: #f0f0f0;
+  --ahp-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  --ahp-shadow-soft: 0 6px 16px rgba(0,0,0,0.06);
+}
+
+/* Base */
+.ahp-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #ffffff 0%, var(--ahp-bg) 100%);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ahp-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Headings */
+.ahp-sectionTitle {
+  margin: 4px 2px 10px 2px;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ahp-text-strong);
+}
+
+.ahp-muted {
+  color: var(--ahp-text-muted);
+  font-size: 14px;
+}
+
+/* Cards */
+.ahp-card {
+  background: var(--ahp-card);
+  border-radius: 12px;
+  box-shadow: var(--ahp-shadow);
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.ahp-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ahp-text-strong);
+}
+
+.ahp-desc {
+  margin: 6px 0 0 0;
+  color: var(--ahp-text-muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+/* Form layout */
+.ahp-form { display: flex; flex-direction: column; gap: 12px; }
+
+.ahp-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.ahp-field { display: flex; flex-direction: column; }
+
+.ahp-label {
+  font-size: 12px;
+  color: var(--ahp-text);
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.ahp-input,
+.ahp-input[type="file"],
+.ahp-select,
+.ahp-textarea {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--ahp-border);
+  font-size: 14px;
+  box-sizing: border-box;
+  width: 100%;
+  background: #fff;
+  color: var(--ahp-text);
+  transition: border-color .15s ease, box-shadow .15s ease, background .15s ease;
+}
+
+.ahp-textarea {
+  min-height: 68px;
+  resize: vertical;
+}
+
+.ahp-input:focus,
+.ahp-select:focus,
+.ahp-textarea:focus {
+  outline: none;
+  border-color: var(--ahp-brand);
+  box-shadow: 0 0 0 3px rgba(0,113,194,0.15);
+}
+
+/* Image preview */
+.ahp-preview {
+  margin-top: 8px;
+  width: 100%;
+  max-height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid var(--ahp-border-soft);
+  box-shadow: var(--ahp-shadow-soft);
+}
+
+/* Buttons */
+.ahp-actions { display: flex; gap: 10px; align-items: center; }
+
+.ahp-btn {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--ahp-border);
+  background: #fff;
+  color: var(--ahp-text);
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background .15s ease, box-shadow .15s ease, transform .08s ease;
+}
+.ahp-btn:hover { background: #f5f7fa; box-shadow: var(--ahp-shadow-soft); }
+
+.ahp-btnPrimary { border: none; background: var(--ahp-accent); color: #fff; font-weight: 700; }
+.ahp-btnPrimary:hover { filter: brightness(0.95); }
+
+.ahp-btnDanger { border: none; background: var(--ahp-danger); color: #fff; font-weight: 700; }
+.ahp-btnDanger:hover { filter: brightness(0.95); color: black; }
+
+.ahp-btn:active, .ahp-btnPrimary:active, .ahp-btnDanger:active { transform: translateY(1px); }
+
+.ahp-error {
+  background: #ffecec;
+  border: 1px solid #ffbdbd;
+  color: #b10000;
+  padding: 8px;
+  border-radius: 8px;
+  margin: 8px 0;
+}
+.ahp-success {
+  background: #ecfff1;
+  border: 1px solid #b3ffc6;
+  color: #036d1d;
+  padding: 8px;
+  border-radius: 8px;
+  margin: 8px 0;
+}
+
+/* Grid of hotels */
+.ahp-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.ahp-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--ahp-brand);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 4px 10px;
+  box-shadow: var(--ahp-shadow-soft);
+}
+
+/* Meta row */
+.ahp-metaRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--ahp-border-soft);
+}
+.ahp-metaItem { display: flex; flex-direction: column; min-width: 110px; }
+.ahp-metaLabel { font-size: 12px; color: var(--ahp-text-muted); }
+.ahp-metaValue { font-size: 14px; color: var(--ahp-text-strong); font-weight: 700; }
+
+/* Footer row in hotel card */
+.ahp-footer {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ahp-creator { display: flex; flex-direction: column; }
+.ahp-creatorLabel { font-size: 11px; color: var(--ahp-text-muted); }
+.ahp-creatorName { font-size: 13px; color: var(--ahp-text); font-weight: 700; }
+
+/* Pagination group */
+.ahp-actions-1 { margin-top: 10px; display: flex; gap: 10px; align-items: center; }
+
+/* Modal */
+
+/* --- Modal Layout: header fixed, body scrolls, footer optional fixed --- */
+.ahp-modalBackdrop {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.35);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(2px);
+  /* allow the page to remain fixed while modal is open (we'll lock body via JS if needed) */
+}
+
+.ahp-modalCard {
+  background: var(--ahp-card);
+  width: 960px; max-width: 95vw;
+  max-height: 90vh;                 /* <- cap by viewport height */
+  border-radius: 16px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+  display: flex;
+  flex-direction: column;           /* header / body / footer layout */
+  overflow: hidden;                 /* keep rounded corners while inner scrolls */
+  animation: ahp-pop .12s ease-out both;
+}
+
+.ahp-modalHeader,
+.ahp-modalFooter {
+  flex: 0 0 auto;                   /* fixed height bars */
+  padding: 12px 16px;
+  background: #fff;
+  border-bottom: 1px solid var(--ahp-border-soft);
+}
+
+.ahp-modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ahp-modalFooter {
+  border-top: 1px solid var(--ahp-border-soft);
+  border-bottom: 0;
+}
+
+.ahp-modalBody {
+  /* The scrolling region */
+  flex: 1 1 auto;
+  overflow: auto;                   /* <- vertical scroll lives here */
+  -webkit-overflow-scrolling: touch;
+  padding: 12px 16px;               /* inner spacing */
+  background: var(--ahp-card);
+}
+
+/* Table: optional internal scroll if you want header frozen inside modal body */
+.ahp-tableWrap {
+  overflow: auto;
+  max-height: 60vh;                 /* <- keeps table from overtaking modal body */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Make table head stick within its wrapper (nice for long lists) */
+.ahp-table thead th {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 1;
+}
+
+/* Mobile: full-screen modal (body still scrolls) */
+@media (max-width: 768px) {
+  .ahp-modalCard {
+    width: 100%;
+    max-width: 100vw;
+    height: 100vh;
+    max-height: 100vh;              /* full height    max-height: 100vh;              /* full height on mobile */
+    border-radius: 0;
+  }
+  .ahp-modalBody {
+    padding-bottom: 80px;           /* room for on-screen keyboard/buttons */
+  }
+}
+
+/* Tables */
+.ahp-tableWrap { overflow-x: auto; }
+
+.ahp-table { width: 100%; border-collapse: collapse; }
+.ahp-table th, .ahp-table td {
+  border-bottom: 1px solid var(--ahp-border-soft);
+  padding: 10px;
+  text-align: left;
+  vertical-align: top;
+}
+.ahp-table th {
+  font-size: 12.5px;
+  color: var(--ahp-text-muted);
+  text-transform: uppercase;
+  letter-spacing: .02em;
+}
+.ahp-table tbody tr:hover td { background: #fafbfc; }
+
+/* Inline controls in table */
+.ahp-table .ahp-input { padding: 8px 10px; border-radius: 8px; }
+
+/* Focus-visible */
+:focus-visible { outline: 3px solid rgba(0,113,194,0.35); outline-offset: 2px; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ahp-row { grid-template-columns: 1fr; }
+  .ahp-modalCard { width: 100%; border-radius: 0; max-width: 100vw; }
+}
+
+/* --- Edit Hotel Modal polish --- */
+
+/* A wider modal variant (same height constraints) */
+.ahp-modalCard--wide {
+  width: 1000px;
+  max-width: 96vw;
+}
+
+/* Brand header variant: gentle gradient and subtle bottom border */
+.ahp-modalHeader--brand {
+  background: linear-gradient(180deg, #ffffff 0%, #f9fbff 100%);
+  border-bottom: 1px solid var(--ahp-border-soft);
+}
+
+.ahp-modalHeaderLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Chip row under title for context */
+.ahp-chipRow {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.ahp-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+   border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--ahp-brand);
+  box-shadow: var(--ahp-shadow-soft);
+}
+.ahp-chip--muted {
+  background: #eef5fb;
+  color: #2c5a7b;
+  border: 1px solid #d8e6f3;
+}
+
+/* Section header inside body */
+.ahp-sectionHeader {
+  margin: 6px 0 8px 0;
+}
+
+/* Divider rhythm */
+.ahp-divider {
+  height: 1px;
+  width: 100%;
+  background: var(--ahp-border-soft);
+  margin: 12px 0;
+}
+
+/* Form grid in modal body */
+.ahp-formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.ahp-formGrid-span2 { grid-column: span 2; }
+
+/* Sticky footer refinement */
+.ahp-modalFooter {
+  position: sticky;
+  bottom: 0;
+  background: #fff;
+  border-top: 1px solid var(--ahp-border-soft);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .ahp-modalCard--wide { width: 100%; max-width: 100vw; }
+  .ahp-formGrid { grid-template-columns: 1fr; }
+  .ahp-formGrid-span2 { grid-column: span 1; }
+}
+
+/* ===== Rooms Table Polished Look ===== */
+
+/* Container: keeps table from overtaking modal height */
+.ahp-tableWrap {
+  overflow: auto;
+  max-height: 60vh;                /* view-friendly height inside modal */
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--ahp-border-soft);
+  border-radius: 12px;
+  background: #fff;
+}
+
+/* Table base */
+.ahp-table {
+  width: 100%;
+  border-collapse: separate;        /* allows rounded corners on wrapper */
+  border-spacing: 0;
+  font-size: 14px;
+}
+
+/* Head */
+.ahp-table thead th {
+  position: sticky;
+  top: 0;
+  background: linear-gradient(180deg, #ffffff 0%, #f9fbff 100%);
+  z-index: 1;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  font-size: 12.5px;
+  color: var(--ahp-text-muted);
+  padding: 10px;
+  border-bottom: 1px solid var(--ahp-border-soft);
+}
+
+/* Body cells */
+.ahp-table tbody td {
+  padding: 10px;
+  border-bottom: 1px solid var(--ahp-border-soft);
+  color: var(--ahp-text);
+}
+
+/* Zebra stripes */
+.ahp-table tbody tr:nth-child(odd) td {
+  background: #fbfdff;              /* subtle blue-tinted row */
+}
+.ahp-table tbody tr:hover td {
+  background: #f5f9ff;              /* hover highlight */
+}
+
+/* Numeric columns: compact alignment */
+.ahp-col--num { 
+  text-align: right; 
+  white-space: nowrap; 
+  width: 120px;
+}
+.ahp-col--actions { 
+  width: 240px; 
+  white-space: nowrap; 
+}
+
+/* Description: clamp to 2 lines with ellipsis */
+.ahp-descClamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical; 
+  overflow: hidden;
+}
+
+/* Inline edit inputs inside table: smaller padding */
+.ahp-table .ahp-input,
+.ahp-table .ahp-textarea {
+  padding: 8px 10px;
+  border-radius: 8px;
+}
+
+/* Chips for capacity/inventory/status */
+.ahp-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  background: #eef5fb;
+  color: #2c5a7b;
+  border: 1px solid #d8e6f3;
+}
+.ahp-chip--ok { background: #ecfff1; color: #105c2a; border-color: #b3ffc6; }
+.ahp-chip--low { background: #fff7e6; color: #8a4b00; border-color: #ffe0a3; }
+.ahp-chip--zero { background: #ffecec; color: #7a0010; border-color: #ffbdbd; }
+
+/* Action button group inside table row */
+.ahp-rowActions {
+  display: inline-flex;
+  gap: 8px;
+}
+
+/* Responsive: stack description below type for narrow screens */
+@media (max-width: 768px) {
+  .ahp-col--actions { width: auto; }
+  .ahp-col--num { width: auto; }
+  .ahp-table thead th:nth-child(2),
+  .ahp-table tbody td:nth-child(2) {
+    display: none; /* hide Description column on mobile to reduce clutter */
+  }
+}
+
+/* Column sizing via colgroup */
+.ahp-col--type     { width: 14%; }
+.ahp-col--desc     { width: 46%; }   /* Make Description wide */
+.ahp-col--num      { width: 10%; text-align: right; white-space: nowrap; }
+.ahp-col--actions  { width: 10%; white-space: nowrap; }
+
+/* Let description wrap nicely with two-line clamp */
+.ahp-descClamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;            /* tweak to 3 if you want one more line */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  word-break: break-word;
+}
+
+/* Responsive: on small screens, hide description or reduce its width */
+@media (max-width: 960px) {
+  .ahp-col--desc { width: 40%; }
+  .ahp-col--type { width: 18%; }
+}
+@media (max-width: 768px) {
+  /* If you prefer to keep description on mobile, comment the next two lines */
+  .ahp-table thead th:nth-child(2),
+  .ahp-table tbody td:nth-child(2) { display: none; }
+  /* and rebalance widths */
+  .ahp-col--type    { width: auto; }
+  .ahp-col--num     { width: auto; }
+  .ahp-col--actions { width: auto; }
+}
+
+/* ===== Create Hotel (form-only refinements) ===== */
+
+/* Ensure the card has consistent spacing */
+.ahp-card {
+  border: 1px solid var(--ahp-border-soft);
+}
+
+/* Grid rows: two columns on desktop, stack on mobile */
+.ahp-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+/* Labels and controls rhythm */
+.ahp-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.ahp-label {
+  font-size: 12px;
+  color: var(--ahp-text);
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+/* Inputs / textareas retain theme; add slight vertical spacing harmony */
+.ahp-input,
+.ahp-textarea {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--ahp-border);
+  font-size: 14px;
+  background: #fff;
+  color: var(--ahp-text);
+  transition: border-color .15s ease, box-shadow .15s ease, background .15s ease;
+}
+
+.ahp-textarea {
+  min-height: 68px;
+  resize: vertical;
+}
+
+.ahp-input:focus,
+.ahp-textarea:focus {
+  outline: none;
+  border-color: var(--ahp-brand);
+  box-shadow: 0 0 0 3px rgba(0,113,194,0.15);
+}
+
+/* Image preview: uniform height + subtle border */
+.ahp-preview {
+  margin-top: 8px;
+  width: 100%;
+  max-height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid var(--ahp-border-soft);
+  box-shadow: var(--ahp-shadow-soft);
+}
+
+/* Action row: right-aligned buttons, consistent spacing */
+.ahp-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-end;      /* <- aligns buttons to the right */
+  margin-top: 12px;
+}
+
+/* Primary / danger / default buttons uniform sizing */
+.ahp-btn,
+.ahp-btnPrimary,
+.ahp-btnDanger {
+  min-height: 40px;               /* visually consistent height */
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background .15s ease, box-shadow .15s ease, transform .08s ease;
+}
+
+.ahp-btn {
+  border: 1px solid var(--ahp-border);
+  background: #fff;
+  color: var(--ahp-text);
+}
+
+.ahp-btn:hover {
+  background: #f5f7fa;
+  box-shadow: var(--ahp-shadow-soft);
+}
+
+.ahp-btnPrimary {
+  border: none;
+  background: var(--ahp-accent);  /* coral */
+  color: #fff;
+  font-weight: 700;
+}
+.ahp-btnPrimary:hover { filter: brightness(0.95); }
+.ahp-btnPrimary:active { transform: translateY(1px); }
+
+.ahp-btnDanger {
+  border: none;
+  background: var(--ahp-danger);
+  color: #fff;
+  font-weight: 700;
+}
+.ahp-btnDanger:hover { filter: brightness(0.95); }
+.ahp-btnDanger:active { transform: translateY(1px); }
+
+/* Success / error messages spacing */
+.ahp-error,
+.ahp-success {
+  margin-top: 10px;
+}
+
+/* File inputs look consistent with other inputs */
+.ahp-input[type="file"] {
+  padding: 8px;
+  cursor: pointer;
+}
+
+/* Optional: give the “Images” row a bit more breathing room */
+.ahp-row + .ahp-row .ahp-field:first-child .ahp-input[type="file"] {
+  margin-top: 2px;
+}
+
+/* ===== Responsive tweaks ===== */
+@media (max-width: 768px) {
+  .ahp-row { grid-template-columns: 1fr; }
+  .ahp-actions { justify-content: stretch; }   /* full-width button row on mobile */
+  .ahp-actions .ahp-btnPrimary {
+    width: 100%;                                /* primary CTA spans full width on mobile */
+  }
+}
